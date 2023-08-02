@@ -11,7 +11,6 @@ const {
 
 const router = express.Router();
 
-
 router.get("/character/:id", getCharacterId);
 router.get("/all", getAllChars);
 router.get("/detail/:detailId", getDetailId);
