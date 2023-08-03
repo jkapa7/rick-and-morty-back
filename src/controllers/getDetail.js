@@ -1,7 +1,6 @@
 const axios = require("axios");
 
 module.exports = async (req, res) => {
-  const { detailId } = req.params;
   try {
     const result = await axios(
       `https://rickandmortyapi.com/api/character/${detailId}`

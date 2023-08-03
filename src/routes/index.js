@@ -11,7 +11,7 @@ const {
 const router = Router();
 
 router.get("/character/:id", getCharacterById);
-router.get("/", getAllCharacters);
+router.get("/character", getAllCharacters);
 router.get("/detail/:id", getDetail);
 router.get("/favorite", getFav);
 router.post("/favorite", postFavorite);
