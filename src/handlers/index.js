@@ -1,4 +1,4 @@
-const catchedAsync = require("../utils");
+const { catchedAsync } = require("../utils/index");
 
 let fav = [];
 

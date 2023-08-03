@@ -1,14 +1,18 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const morgan = require("morgan");
 const routes = require("./routes/index");
+const resError = require("./utils/");
 
-const app = express();
+const server = express();
+server.use(morgan("dev"));
+server.use(express.json());
 
-app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
-app.use(bodyParser.json({ limit: "50mb" }));
+server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+server.use(bodyParser.json({ limit: "50mb" }));
 
 //Seteamos headers para la respuesta que le enviamos al cliente
-app.use((req, res, next) => {
+server.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*"); //Autorizo recibir solicitudes de este dominio
   res.header("Access-Control-Allow-Credentials", true); //Autorizo recibir solicitudes que incluyan el encabezado con credenciales
   res.header(
@@ -19,6 +23,11 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/", routes);
+server.use("/", routes);
 
-module.exports = app;
+server.use((err, req, res, next) => {
+  const { statusCode, message } = err;
+  resError(res, statusCode, message);
+});
+
+module.exports = server;
