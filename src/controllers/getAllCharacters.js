@@ -1,4 +1,4 @@
-const getAllChars = async (req, res) => {
+module.exports = async (req, res) => {
   try {
     const result = await axios(`https://rickandmortyapi.com/api/character/`);
 

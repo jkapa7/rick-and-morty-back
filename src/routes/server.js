@@ -4,7 +4,7 @@ const getCharDetail = require("../controllers/index");
 const getCharById = require("../controllers/index");
 const getApiData = require("../controllers/index");
 
-const { sequelize } = require("../DB_connection");
+const { sequelize } = require("../db");
 
 const server = http.createServer((req, res) => {
   const allUrl = req.url.split("/");

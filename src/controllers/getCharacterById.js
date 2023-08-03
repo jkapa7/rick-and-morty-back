@@ -1,4 +1,4 @@
-const getCharacterId = async (req, res) => {
+module.exports = async (req, res) => {
   const { id } = req.params;
   try {
     const result = await axios(

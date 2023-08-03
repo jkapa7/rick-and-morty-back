@@ -1,21 +1,21 @@
 const express = require("express");
 
 const {
-  getCharacterId,
-  getDetailId,
+  getCharacterById,
+  getAllCharacters,
+  getDetail,
   getFav,
-  postFav,
-  deleteFav,
-  getAllChars,
-} = require("../controllers/index");
+  postFavorite,
+  deleteFavorite,
+} = require("../controllers");
 
 const router = express.Router();
 
-router.get("/character/:id", getCharacterId);
-router.get("/all", getAllChars);
-router.get("/detail/:detailId", getDetailId);
+router.get("/character/:id", getCharacterById);
+router.get("/all", getAllCharacters);
+router.get("/detail/:detailId", getDetail);
 router.get("/fav", getFav);
-router.post("/fav", postFav);
-router.delete("/fav/:id", deleteFav);
+router.post("/fav", postFavorite);
+router.delete("/fav/:id", deleteFavorite);
 
 module.exports = router;
