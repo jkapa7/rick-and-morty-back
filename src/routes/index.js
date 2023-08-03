@@ -1,10 +1,7 @@
-const express = require("express");
+const { Router } = require("express");
 const characters = require("./characters");
-const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("Hola");
-});
+const router = Router();
 
 router.use("/rickandmorty", characters);
 

@@ -1,3 +1,5 @@
+const catchedAsync = require("../utils");
+
 let fav = [];
 
 const getFav = (req, res) => {
@@ -6,9 +8,9 @@ const getFav = (req, res) => {
 
 module.exports = {
   getFav,
-  deleteFavorite: require("./deleteFavorite"),
-  getAllCharacters: require("./getAllCharacters"),
-  getCharacterById: require("./getCharacterById"),
-  getDetail: require("./getDetail"),
-  postFavorite: require("./postFavorite"),
+  deleteFavorite: catchedAsync(require("./deleteFavorite")),
+  getAllCharacters: catchedAsync(require("./getAllCharacters")),
+  getCharacterById: catchedAsync(require("./getCharacterById")),
+  getDetail: catchedAsync(require("./getDetail")),
+  postFavorite: catchedAsync(require("./postFavorite")),
 };

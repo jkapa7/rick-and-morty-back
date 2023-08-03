@@ -1,4 +1,4 @@
-const express = require("express");
+const { Router } = require("express");
 
 const {
   getCharacterById,
@@ -9,13 +9,13 @@ const {
   deleteFavorite,
 } = require("../controllers");
 
-const router = express.Router();
+const router = Router();
 
 router.get("/character/:id", getCharacterById);
-router.get("/all", getAllCharacters);
-router.get("/detail/:detailId", getDetail);
-router.get("/fav", getFav);
-router.post("/fav", postFavorite);
-router.delete("/fav/:id", deleteFavorite);
+router.get("/", getAllCharacters);
+router.get("/detail/:id", getDetail);
+router.get("/favorite", getFav);
+router.post("/favorite", postFavorite);
+router.delete("/favorite/:id", deleteFavorite);
 
 module.exports = router;

@@ -1,10 +1,7 @@
-module.exports = (req, res) => {
-  const { id } = req.params;
-  const character = fav.find((character) => character.id === Number(id));
-  if (character) {
-    fav = fav.filter((elememt) => elememt.id !== Number(id));
-    res.status(200).end(JSON.stringify(character));
-  } else {
-    res.status(400).end("este character ya no se encuentra en fav");
-  }
+const { deleteFavorite } = require("../controllers");
+const { response } = require("../utils");
+
+module.exports = async (req, res) => {
+  const detail = await deleteFavorite();
+  response(res, 200, detail);
 };
