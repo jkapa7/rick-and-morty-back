@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 module.exports = (req, res) => {
   const { id } = req.params;
   const character = fav.find((character) => character.id === Number(id));

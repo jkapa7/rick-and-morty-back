@@ -1,18 +1,22 @@
-module.exports = async (req, res) => {
-  try {
-    const result = await axios(`https://rickandmortyapi.com/api/character/`);
+const axios = require("axios");
 
-    const character = {
-      id: result.id,
-      name: result.name,
-      species: result.species,
-      status: result.status,
-      origin: result.origin,
-      gender: result.gender,
-      image: result.image,
-    };
-    res.status(200).json(character);
-  } catch (error) {
-    res.status(500).json("Not found", error);
-  }
+module.exports = async () => {
+  const result = await axios.get(`https://rickandmortyapi.com/api/character/`);
+
+  const characters = result.data.results.map((e) => {
+    return 1;
+  });
+
+  console.log(characters);
+  // const character = {
+  //   id: result.data.results.id,
+  //   name: result.data.results.name,
+  //   species: result.data.results.species,
+  //   status: result.data.results.status,
+  //   origin: result.data.results.origin,
+  //   gender: result.data.results.gender,
+  //   image: result.data.results.image,
+  // };
+
+  return characters;
 };
