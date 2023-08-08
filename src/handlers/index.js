@@ -11,6 +11,5 @@ module.exports = {
   deleteFavorite: catchedAsync(require("./deleteFavorite")),
   getAllCharacters: catchedAsync(require("./getAllCharacters")),
   getCharacterById: catchedAsync(require("./getCharacterById")),
-  getDetail: catchedAsync(require("./getDetail")),
   postFavorite: catchedAsync(require("./postFavorite")),
 };

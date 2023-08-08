@@ -9,6 +9,5 @@ module.exports = {
   deleteFavorite: require("./deleteFavorite"),
   getAllCharacters: require("./getAllCharacters"),
   getCharacterById: require("./getCharacterById"),
-  getDetail: require("./getDetail"),
   postFavorite: require("./postFavorite"),
 };

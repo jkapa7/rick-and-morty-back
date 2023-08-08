@@ -9,6 +9,8 @@ module.exports = async (id) => {
     name: result.data.name,
     gender: result.data.gender,
     species: result.data.species,
+    status: result.data.status,
+    origin: result.data.origin.name,
   };
 
   return character;
